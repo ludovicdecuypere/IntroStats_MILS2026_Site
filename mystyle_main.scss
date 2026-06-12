@@ -16,11 +16,11 @@ $font-family-sans-serif: "Google Sans", sans-serif;
 $body-family: $font-family-sans-serif;
 $headings-font-family: $font-family-sans-serif;
 
-$navbar-bg: $green;
+$navbar-bg: #076E32;
 $body-bg: #ECFDF5;
 $navbar-fg: $white;
 $headings-color: black;
-$link-color: $green;
+$link-color: #076E32;
 
 /*-- scss:rules --*/
 
@@ -34,7 +34,6 @@ $link-color: $green;
 
 .nav-link {
   font-family: $font-family-sans-serif !important;
-  text-transform: uppercase;
   font-weight: 500;
   font-size: 0.9rem;
   position: relative; // Context for the underline
@@ -50,7 +49,7 @@ $link-color: $green;
     height: 1px;
     bottom: 0;
     left: 50%;
-    background-color: #F1A42B; // Contrast against $black navbar
+    background-color: #076E32; // Contrast against $black navbar
     transition: width 0.3s ease, left 0.3s ease;
     transform: translateX(-50%);
   }
@@ -66,7 +65,7 @@ $link-color: $green;
 h1, h2, h3, h4 {
   font-family: $font-family-sans-serif;
   font-weight: 500;
-  color: #007bb8;
+  color: #113DC0;
   text-transform: uppercase;
 }
 
