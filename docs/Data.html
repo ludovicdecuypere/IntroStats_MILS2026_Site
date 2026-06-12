@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ludovic De Cuypere">
+<meta name="dcterms.date" content="2026-06-11">
+
+<title>Data – Introduction to Statistics with R</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-07cd333d4ffaf8a3d3d374e682464d58.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Introduction to Statistics with R</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Coursebook.html"> 
+<span class="menu-text">Coursebook</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Slides.html"> 
+<span class="menu-text">Slides</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./Data.html" aria-current="page"> 
+<span class="menu-text">Data</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#english-short-vowels" id="toc-english-short-vowels" class="nav-link active" data-scroll-target="#english-short-vowels">English short vowels</a></li>
+  <li><a href="#english-possessive-alternation" id="toc-english-possessive-alternation" class="nav-link" data-scroll-target="#english-possessive-alternation">English possessive alternation</a></li>
+  <li><a href="#english-l2-vocabulary" id="toc-english-l2-vocabulary" class="nav-link" data-scroll-target="#english-l2-vocabulary">English L2 vocabulary</a></li>
+  <li><a href="#videolang" id="toc-videolang" class="nav-link" data-scroll-target="#videolang">Videolang</a></li>
+  </ul>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/ludovicdecuypere/IntroStats_Course_LDC/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data</h1>
+<p class="subtitle lead">MILS 2026: Introduction to Statistics</p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Ludovic De Cuypere <a href="mailto:Ludovic.De.Cuypere@vub.be" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-0050-1097" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Vrije Universiteit Brussel &amp; Ghent University
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 11, 2026</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">June 12, 2026</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>In this course, you explore, summarize, and visualize variables from the following datasets:</p>
+<ol type="1">
+<li>English short vowels <span class="citation" data-cites="VerbekeVanPraet2025">(<a href="#ref-VerbekeVanPraet2025" role="doc-biblioref"><strong>VerbekeVanPraet2025?</strong></a>)</span></li>
+<li>The English possessive alternation <span class="citation" data-cites="Grafmiller2023">(<a href="#ref-Grafmiller2023" role="doc-biblioref"><strong>Grafmiller2023?</strong></a>)</span></li>
+<li>English L2 vocabulary <span class="citation" data-cites="dewilde2019">(<a href="#ref-dewilde2019" role="doc-biblioref">De Wilde et al. 2019</a>)</span></li>
+<li>Pre-Posttest data</li>
+</ol>
+<p>Here is a brief explanation for each dataset, so that you have a basic understanding of what kind of data is provided.</p>
+<p>All datasets can be found here: ADD LINK</p>
+<section id="english-short-vowels" class="level2">
+<h2 class="anchored" data-anchor-id="english-short-vowels">English short vowels</h2>
+<blockquote class="blockquote">
+<p>This dataset contains the measurements of 210 checked steady-state vowels. Previous studies have shown that suprasegmental factors have an impact on the duration of vowels, such as prosodic boundary strength and the proximity to the end of an intonation unit boundary. To the previous findings, this study adds another potential factor, namely the difference between primary accented, secondary accented, and non-accented syllables. By diversifying between these factors, we seek to establish the actual influence that each factor might have on the duration steady-state vowels, which will be assessed using multiple linear mixed-effects regression models. R code for the data analysis is provided.</p>
+</blockquote>
+<p>The dataset includes 17 variables, providing information about Speaker, Items and Vowels.</p>
+<p>Here is an overview of the first six rows:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  ID Number
+1  1      1
+2  2      2
+3  3      3
+4  4      4
+5  5      5
+6  6      6
+                                                                                   IU
+1 to ^get them to give me a sub:stantial sum of money to enable me to :f\\inish it# -
+2                                                        I have ^n/\\ever said that# 
+3                                 I I I ^h/\\ope _you`ll ac_cept my _word on _this# -
+4            ^and we pro!pose to put the :scheme to the Chi!ca\\go Uni_versity Press#
+5                                  I . ^put my bibli!\\ography to the _Oxford _Press#
+6                         I ^thought "y/\\ou were _going to _go and _pick them _up# .
+  Speaker Gender  Item Vowel Duration_IU_s Syllables_IU Speech_Rate Frequency
+1 &lt;2_1_B&gt;   male    it   KIT          2.76           22        7.97      7.33
+2 &lt;2_1_B&gt;   male  that   CAT          1.47            6        4.08      7.19
+3 &lt;2_1_B&gt;   male  this   KIT          2.04           11        5.40      6.89
+4 &lt;2_1_B&gt;   male press DRESS          2.77           19        6.85      4.89
+5 &lt;2_1_B&gt;   male press DRESS          2.99           13        4.35      4.89
+6 &lt;4_1_a&gt;   male    up STRUT          1.49           12        8.04      6.53
+    ACC BI Prox Duration_ms Annotator_1_Duration Annotator_2_Duration
+1 UNACC  4    0        64.2                 66.4                 62.0
+2 UNACC  4    0        83.5                 87.0                 79.9
+3 UNACC  4    0        98.3                104.8                 91.8
+4 UNACC  4    0        95.7                 94.2                 97.2
+5 UNACC  4    0        76.9                 82.7                 71.1
+6 UNACC  4    0        78.3                 78.0                 78.5</code></pre>
+</div>
+</div>
+<p>One of the variables that we will examine is the duration of the vowels: Duration_ms. Let’s look at a summary and a boxplot for this variable:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  24.40   77.25  107.90  110.92  143.07  258.90 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Data_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The dataset provides the vowel duration of six vowels:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "CAT"   "DRESS" "KIT"   "LOT"   "PUT"   "STRUT"</code></pre>
+</div>
+</div>
+</section>
+<section id="english-possessive-alternation" class="level2">
+<h2 class="anchored" data-anchor-id="english-possessive-alternation">English possessive alternation</h2>
+<blockquote class="blockquote">
+<p>The dataset includes an annotated dataset of N = 5098 tokens of English s-genitive (e.g.&nbsp;“the children’s voices”) and of-genitive (e.g.&nbsp;“the voices of the children”) constructions extracted from 5 components an of the Brown and Frown corpora of published written American English. The Brown corpus was compiled in the early 1960s, and the parallel Frown corpus in the early 1990s. The tokens are annotated for 18 syntactic, semantic, phonological, and contextual features. The dataset also includes the full sentence containing the token as well as metadata pertaining to the location of the token within the corpus. (2022-08-25)</p>
+</blockquote>
+<p>We import the data and look at the first six rows:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>         Token Corpus Text Line_Number Genre Type
+1 ba01.0001.02  Brown  A01           1 Press    s
+2 ba01.0002.02  Brown  A01           2 Press   of
+3 ba01.0004.03  Brown  A01           4 Press   of
+4 ba01.0005.02  Brown  A01           5 Press    s
+5 ba01.0007.02  Brown  A01           7 Press   of
+6 ba01.0008.01  Brown  A01           8 Press   of
+                                Whole_Genitive           Possessor
+1            Atlanta's recent primary election           Atlanta's
+2 the praise and thanks of the City of Atlanta the City of Atlanta
+3                        the size of this city           this city
+4     Georgia's registration and election laws           Georgia's
+5        the best interest of both governments    both governments
+6                   the cost of administration      administration
+   Possessor_Head Possessor_NP_Type Final_Sibilant Possessor_Animacy5
+1         Atlanta            proper              N         collective
+2 City of Atlanta            proper              N         collective
+3            city            common              N         collective
+4         Georgia            proper              N         collective
+5      government            common              Y         collective
+6  administration            common              N          inanimate
+  Possessor_Animacy3 Possessor_Animacy2 Possessor_Givenness
+1         collective          inanimate                 new
+2         collective          inanimate                 new
+3         collective          inanimate               given
+4         collective          inanimate                 new
+5         collective          inanimate                 new
+6          inanimate          inanimate                 new
+                       Possessum Possessum_Head Possessum_Animacy2
+1        recent primary election       election          inanimate
+2          the praise and thanks         praise          inanimate
+3                       the size           size          inanimate
+4 registration and election laws            law          inanimate
+5              the best interest       interest          inanimate
+6                       the cost           cost          inanimate
+  Semantic_Relation Prototypical_Semantics Preceding_s_genitive
+1               OTH                      N                    N
+2               OTH                      N                    Y
+3               OTH                      N                    N
+4               OTH                      N                    N
+5               OTH                      N                    Y
+6               OTH                      N                    N
+  Possessor_Thematicity Possessor_Length Possessum_Length Type_Token_Ratio Time
+1             -2.455932                1                3               72 1960
+2             -3.301030                4                4               66 1960
+3             -2.346787                2                2               73 1960
+4             -2.397940                1                4               75 1960
+5             -3.301030                2                3               74 1960
+6             -3.000000                1                2               75 1960</code></pre>
+</div>
+</div>
+<p>How many observations are there for each type of possesive?</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  of    s 
+3103 1995 </code></pre>
+</div>
+</div>
+<p>If the final consonant of the possessor is a sibilant, then the use of the of-preposition is more likely (or, vice versa, one would not expect to get an s-possessive):</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>              Type of possessive
+Final sibilant   of    s
+             N 2229 1754
+             Y  874  241</code></pre>
+</div>
+</div>
+</section>
+<section id="english-l2-vocabulary" class="level2">
+<h2 class="anchored" data-anchor-id="english-l2-vocabulary">English L2 vocabulary</h2>
+<p>The dataset is based on De Wilde et al. <span class="citation" data-cites="dewilde2019">(<a href="#ref-dewilde2019" role="doc-biblioref">2019</a>)</span>, available at <a href="https://osf.io/ndr47/" class="uri">https://osf.io/ndr47/</a>. I have selected and renamed the variables for our purposes here. <a href="#tbl-falsebeginnerscodebook" class="quarto-xref">Table&nbsp;1</a> provides an overview of the variables.</p>
+<div id="tbl-falsebeginnerscodebook" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-falsebeginnerscodebook-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Codebook Falsebeginners
+</figcaption>
+<div aria-describedby="tbl-falsebeginnerscodebook-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 58%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">ID</th>
+<th style="text-align: center;">Variable</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Student</td>
+<td style="text-align: left;">A unique identifier for each student</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">School</td>
+<td style="text-align: left;">A unique identifier for each school</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">Class</td>
+<td style="text-align: left;">A unique identifier for each class</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">PPVT</td>
+<td style="text-align: left;">Score for the Peabody Picture Vocabulary Test (PPVT). Maximum score = 120</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Speaking</td>
+<td style="text-align: left;">Score for the speaking test. Maximum score = 20</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Listening</td>
+<td style="text-align: left;">Score for the listening test. Maximum score = 25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">ReadingWriting</td>
+<td style="text-align: left;">Score for the reading and writing tests. Maximum score = 50</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">Attitude</td>
+<td style="text-align: left;">Attitude of student towards English: Positive vs.&nbsp;Negative</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">L1</td>
+<td style="text-align: left;">L1: Dutch vs.&nbsp;Multilingual</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">Sex</td>
+<td style="text-align: left;">Sex of student: Male vs.&nbsp;Female</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The file is a tab delimited .txt-file. We open the file with <code>read.delim()</code>. The dataset is organised in long data format.</p>
+<ol type="1">
+<li>the text file to open,</li>
+<li>the first row of the file contains the variables names,</li>
+<li>missing values are marked as “NA”,</li>
+<li>strings are interpreted as factors.</li>
+</ol>
+<p>The first six rows of the dataset:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  Student School Class PPVT Speaking Listening ReadingWriting Attitude    L1
+1      10     S1    1A   70        4         7             13 positive dutch
+2      14     S1    1A   79        7        14             18 positive dutch
+3       2     S1    1A   98       19        24             37 positive dutch
+4       3     S1    1A   80       11        17             30 positive dutch
+5       4     S1    1A   76        7         9             18 positive dutch
+6       5     S1    1A   85       16        17             22 positive dutch
+     Sex
+1 female
+2   male
+3   male
+4   male
+5   male
+6   male</code></pre>
+</div>
+</div>
+</section>
+<section id="videolang" class="level2">
+<h2 class="anchored" data-anchor-id="videolang">Videolang</h2>
+<p>This is a small dataset with pre- and posttest scores of students looking at a video in two languages: English (“ENG”) vs.&nbsp;Dutch (“NED”). It’s a tab delimited .txt file.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  ID Lang Pretest Posttest
+1  1  ENG       7        7
+2  2  ENG      17       18
+3  3  ENG      11       17
+4  4  ENG      10       10
+5  5  ENG      17       24
+6  6  ENG      13       16</code></pre>
+</div>
+</div>
+<p>Here is the change score (Post-Pre) by Language visualised in a clustered boxplot.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Data_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The boxplots suggest more improvement for English than for Dutch, but the difference is not significant, neither based on a t-test, nor on a non-parametric Mann-Whitney-Wilcoxon test.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  vid$Change by vid$Lang
+t = 0.48684, df = 25.683, p-value = 0.6305
+alternative hypothesis: true difference in means between group ENG and group NED is not equal to 0
+95 percent confidence interval:
+ -1.698725  2.752297
+sample estimates:
+mean in group ENG mean in group NED 
+         2.714286          2.187500 </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon rank sum exact test
+
+data:  vid$Change by vid$Lang
+W = 127.5, p-value = 0.5278
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-dewilde2019" class="csl-entry" role="listitem">
+De Wilde, Vanessa, Marc Brysbaert, and June Eyckmans. 2019. <span>“Learning English Through Out-of-School Exposure. Which Levels of Language Proficiency Are Attained and Which Types of Input Are Important?”</span> <em>Bilingualism: Language and Cognition</em> 23 (1): 171–85. <a href="https://doi.org/10.1017/s1366728918001062">https://doi.org/10.1017/s1366728918001062</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/ludovicdecuypere\.github\.io\/IntroStats_Course_LDC\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><span class="faux-block"><i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> 2026 - Ludovic De Cuypere</span> <span class="faux-block">All content licensed under<br><a href="https://creativecommons.org/licenses/by/4.0/"><i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i> <i class="fa-brands fa-creative-commons-by" aria-label="creative-commons-by"></i> Creative Commons CC BY 4.0</a></span></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ludovicdecuypere/IntroStats_Course_LDC/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p><span class="faux-block">Made with <i class="fa-brands fa-r-project" aria-label="r-project"></i> and <a href="https://quarto.org/">Quarto</a></span> <span class="faux-block"><a href="https://github.com/ludovicdecuypere/IntroR_Course_LDC">View the source at <i class="fa-brands fa-github" aria-label="github"></i> GitHub</a></span></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

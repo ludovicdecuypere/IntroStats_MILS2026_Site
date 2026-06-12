@@ -1,0 +1,48 @@
+---
+title: "Welcome!"
+subtitle: "MILS 2026: Introduction to Statistics with R"
+date: 2026-06-11
+date-format: long
+date-modified: last-modified
+author:
+  - name: Ludovic De Cuypere
+    orcid: 0000-0002-0050-1097
+    email: Ludovic.De.Cuypere@vub.be
+    affiliations: Vrije Universiteit Brussel & Ghent University
+---
+This is the course website for **Module 12: Introduction to Statistics with R**, a 15 hour introductory course delivered at the summer school [Methods in Language Sciences](https://www.mils.ugent.be/) at Ghent University. No particular background in statistics or probability theory is expected. However, students are expected to have some basic knowledge of R. 
+
+This beginner-friendly course aims to provide participants with a solid foundation in Statistics, empowering them to explore, analyze, and visualize data efficiently. Emphasis is placed on hands-on practical exercises and real-world examples, enabling students to immediately apply their knowledge.
+
+The following key topics are covered:
+
+- Descriptive statistics
+- The (standard) normal distribution
+- The sampling distribution
+- Interval estimation
+- Null hypothesis significance testing
+  
+    -   t-tests
+    -   chi-squared test
+    -   linear regression
+
+Covering both statistics and R in a workshop is a gargantuan endeavor and it's easy to feel lost along the way. Becoming a statistician in just three days? Don't even think about it. As if we linguists would be able to teach a language in barely two days - it can't and it won't happen. But that's ok. This course offers an introduction to the practice of statistics and this may hopefully give you a taste for more.
+
+To reap the full benefits, you will have to do your "homework", i.e., reread, recode, and redo the exercises. Or take another course or a more in depth tutorial on a specific topic. 
+
+## Getting started
+
+Before coming to class make sure to:
+
+1. Install R
+2. Install RStudio
+
+Go to the Quarto website and follow the instructions: <https://quarto.org/docs/get-started/>
+
+## Course materials
+
+All course materials for this module are provided on this website and includes slides, R-scripts and Notebooks, exercises, datasets and further reading materials.
+
+## Instructor
+
+Ludovic De Cuypere is currently an Associate Professor of English Linguistics at Vrije Universiteit Brussel and serves as a Research Support Officer at the Linguistics Department of Ghent University. He earned his PhD in Germanic Languages and Literature from Ghent University in 2007, with a dissertation on iconicity in language. His research has centred on alternating syntactic constructions, explored from various linguistic perspectives and in multiple languages. Dr. De Cuypere has contributed to theoretical and epistemological aspects of linguistic debates, along with aiding in the methodological design and statistical analysis of numerous studies. His work is published in esteemed journals such as Language Sciences, English Language and Linguistics, Revue Romane, Corpus Linguistics and Linguistic Theory, among others. An advocate for Open Science, he has released several datasets on TROLLing, a curated repository under DataverseNo.

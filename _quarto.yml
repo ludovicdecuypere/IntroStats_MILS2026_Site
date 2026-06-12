@@ -1,0 +1,41 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Introduction to Statistics with R"
+  site-url: https://ludovicdecuypere.github.io/IntroStats_Course_LDC/
+  repo-url: https://github.com/ludovicdecuypere/IntroStats_Course_LDC
+  repo-actions: [issue]
+  page-footer:
+    left: |
+      <span class="faux-block">{{< fa brands creative-commons >}} 2026 -  Ludovic De Cuypere</span>
+      <span class="faux-block">All content licensed under<br>[{{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}} Creative Commons CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)</span>      
+    right: |
+      <span class="faux-block">Made with {{< fa brands r-project >}} and [Quarto](https://quarto.org/)</span>
+      <span class="faux-block">[View the source at {{< fa brands github >}} GitHub](https://github.com/ludovicdecuypere/IntroR_Course_LDC)</span>
+  navbar:
+    right:
+      - href: index.qmd
+        text: About
+      - href: Coursebook.qmd
+        text: Coursebook
+      - href: Slides.qmd
+        text: Slides
+      - href: Data.qmd
+        text: Data
+  page-navigation: true
+
+format:
+  html:
+    theme: [Journal, mystyle_main.scss]
+    toc: true
+    toc-depth: 2
+    toc-title: "Contents"
+    toc-font-size: 0.9rem
+    link-external-icon: true
+    link-external-newwindow: true
+
+
+execute:
+  freeze: auto

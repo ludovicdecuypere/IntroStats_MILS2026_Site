@@ -1,0 +1,97 @@
+/*-- scss:defaults --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+// The Palette
+$black: #0f0f0f;      
+$white: #ffffff;
+$soft-gray: #f8f8f8;  
+$medium-gray: #3b3b3b;
+$green: #90E31C;
+
+// Font Variables
+$font-family-sans-serif: "Google Sans", sans-serif;
+
+// Base Quarto/Bootstrap font settings
+$body-family: $font-family-sans-serif;
+$headings-font-family: $font-family-sans-serif;
+
+$navbar-bg: $green;
+$body-bg: #ECFDF5;
+$navbar-fg: $white;
+$headings-color: black;
+$link-color: $green;
+
+/*-- scss:rules --*/
+
+// Navigation
+.navbar-brand, 
+.navbar-title {
+  font-family: $font-family-sans-serif !important;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.nav-link {
+  font-family: $font-family-sans-serif !important;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.9rem;
+  position: relative; // Context for the underline
+  padding-bottom: 2px;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  // The Underline Element
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    background-color: #F1A42B; // Contrast against $black navbar
+    transition: width 0.3s ease, left 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  // Hover & Active States
+  &:hover::after,
+  &.active::after {
+    width: 70%;
+  }
+}
+
+// Headings
+h1, h2, h3, h4 {
+  font-family: $font-family-sans-serif;
+  font-weight: 500;
+  color: #007bb8;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 2.7rem;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  padding-top: 1em;
+  color: #113DC0;
+}
+
+// Body Text
+body {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: $medium-gray;
+  -webkit-font-smoothing: antialiased;
+}
+
+.subtitle {
+  font-size: 2.4rem;
+  color: #113DC0;
+}
+
+.faux-block {
+        display: block;
+        padding-bottom: 0.6em;
+    }

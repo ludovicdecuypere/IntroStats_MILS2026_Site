@@ -1,0 +1,152 @@
+---
+title: "Data"
+subtitle: "MILS 2026: Introduction to Statistics"
+date: 2026-06-11
+date-format: long
+date-modified: last-modified
+author:
+  - name: Ludovic De Cuypere
+    orcid: 0000-0002-0050-1097
+    email: Ludovic.De.Cuypere@vub.be
+    affiliations: Vrije Universiteit Brussel & Ghent University
+execute:
+  echo: false
+  warning: false
+  message: false
+bibliography: references.bib
+
+---
+In this course, you explore, summarize, and visualize variables from the following datasets:
+
+1. English short vowels [@VerbekeVanPraet2025]
+2. The English possessive alternation [@Grafmiller2023]
+3. English L2 vocabulary [@dewilde2019]
+4. Pre-Posttest data 
+
+Here is a brief explanation for each dataset, so that you have a basic understanding of what kind of data is provided. 
+
+All datasets can be found here: ADD LINK
+
+## English short vowels
+
+> This dataset contains the measurements of 210 checked steady-state vowels. Previous studies have shown that suprasegmental factors have an impact on the duration of vowels, such as prosodic boundary strength and the proximity to the end of an intonation unit boundary. To the previous findings, this study adds another potential factor, namely the difference between primary accented, secondary accented, and non-accented syllables. By diversifying between these factors, we seek to establish the actual influence that each factor might have on the duration steady-state vowels, which will be assessed using multiple linear mixed-effects regression models. R code for the data analysis is provided.
+
+The dataset includes 17 variables, providing information about Speaker, Items and Vowels. 
+
+```{r}
+accent <- read.csv("Accentuation_Dataset.csv", stringsAsFactors=TRUE)
+```
+
+Here is an overview of the first six rows:
+
+```{r}
+head(accent)
+```
+
+One of the variables that we will examine is the duration of the vowels: Duration_ms. Let's look at a summary and a boxplot for this variable:
+
+```{r}
+summary(accent$Duration_ms)
+```
+
+
+```{r}
+boxplot(accent$Duration_ms, ylab = "Vowel duration (ms)")
+```
+
+The dataset provides the vowel duration of six vowels: 
+
+```{r}
+levels(accent$Vowel)
+```
+
+## English possessive alternation
+
+> The dataset includes an annotated dataset of N = 5098 tokens of English s-genitive (e.g. "the children's voices") and of-genitive (e.g. "the voices of the children") constructions extracted from 5 components an of the Brown and Frown corpora of published written American English. The Brown corpus was compiled in the early 1960s, and the parallel Frown corpus in the early 1990s. The tokens are annotated for 18 syntactic, semantic, phonological, and contextual features. The dataset also includes the full sentence containing the token as well as metadata pertaining to the location of the token within the corpus. (2022-08-25)
+
+We import the data and look at the first six rows:
+
+```{r}
+gen <- read.delim("written_genitive_tokens_Brown_Frown.txt", stringsAsFactors=TRUE)
+```
+
+```{r}
+head(gen)
+```
+
+How many observations are there for each type of possesive? 
+
+```{r}
+table(gen$Type)
+```
+
+If the final consonant of the possessor is a sibilant, then the use of the of-preposition is more likely (or, vice versa, one would not expect to get an s-possessive): 
+
+```{r}
+table("Final sibilant" = gen$Final_Sibilant, 
+      "Type of possessive" = gen$Type)
+```
+
+## English L2 vocabulary
+
+The dataset is based on De Wilde et al. [-@dewilde2019], available at <https://osf.io/ndr47/>. I have selected and renamed the variables for our purposes here. @tbl-falsebeginnerscodebook provides an overview of the variables.
+
+| ID  |    Variable    | Description                                                               |
+|:-------------:|:-------------:|:------------------------------------------|
+|  1  |    Student     | A unique identifier for each student                                      |
+|  2  |     School     | A unique identifier for each school                                       |
+|  3  |     Class      | A unique identifier for each class                                        |
+|  4  |      PPVT      | Score for the Peabody Picture Vocabulary Test (PPVT). Maximum score = 120 |
+|  5  |    Speaking    | Score for the speaking test. Maximum score = 20                           |
+|  6  |   Listening    | Score for the listening test. Maximum score = 25                          |
+|  7  | ReadingWriting | Score for the reading and writing tests. Maximum score = 50               |
+|  8  |    Attitude    | Attitude of student towards English: Positive vs. Negative                |
+|  9  |       L1       | L1: Dutch vs. Multilingual                                                |
+| 10  |      Sex       | Sex of student: Male vs. Female                                           |
+
+: Codebook Falsebeginners {#tbl-falsebeginnerscodebook}
+
+The file is a tab delimited .txt-file. We open the file with `read.delim()`. The dataset is organised in long data format.
+
+```{r}
+fb <- read.delim("FalseBeginners.txt",                # <1>
+                 header = TRUE,                       # <2>
+                 na.strings = NA,                     # <3>
+                 stringsAsFactors=TRUE)               # <4>
+```
+
+1.  the text file to open,
+2.  the first row of the file contains the variables names,
+3.  missing values are marked as "NA",
+4.  strings are interpreted as factors.
+
+The first six rows of the dataset: 
+
+```{r}
+head(fb)
+```
+
+
+## Videolang
+
+This is a small dataset with pre- and posttest scores of students looking at a video in two languages: English ("ENG") vs. Dutch ("NED"). It's a tab delimited .txt file.
+
+```{r}
+vid <- read.delim("VideoLang.txt", stringsAsFactors=TRUE)
+head(vid)
+```
+
+Here is the change score (Post-Pre) by Language visualised in a clustered boxplot. 
+
+```{r}
+vid$Change <- vid$Posttest - vid$Pretest
+boxplot(vid$Change ~ vid$Lang, xlab = 'Language', ylab = "Change score")
+```
+
+The boxplots suggest more improvement for English than for Dutch, but the difference is not significant, neither based on a t-test, nor on a non-parametric Mann-Whitney-Wilcoxon test. 
+
+```{r}
+t.test(vid$Change ~ vid$Lang)
+wilcox.test(vid$Change ~ vid$Lang)
+```
+

@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "Slides.html",
+    "href": "Slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "Note\n\n\n\nIn order to see the slides full screen, click on a slide and press f. Press esc to go back to normal rendering."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "This is the course website for Module 12: Introduction to Statistics with R, a 15 hour introductory course delivered at the summer school Methods in Language Sciences at Ghent University. No particular background in statistics or probability theory is expected. However, students are expected to have some basic knowledge of R.\nThis beginner-friendly course aims to provide participants with a solid foundation in Statistics, empowering them to explore, analyze, and visualize data efficiently. Emphasis is placed on hands-on practical exercises and real-world examples, enabling students to immediately apply their knowledge.\nThe following key topics are covered:\nCovering both statistics and R in a workshop is a gargantuan endeavor and it’s easy to feel lost along the way. Becoming a statistician in just three days? Don’t even think about it. As if we linguists would be able to teach a language in barely two days - it can’t and it won’t happen. But that’s ok. This course offers an introduction to the practice of statistics and this may hopefully give you a taste for more.\nTo reap the full benefits, you will have to do your “homework”, i.e., reread, recode, and redo the exercises. Or take another course or a more in depth tutorial on a specific topic."
+  },
+  {
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
+    "title": "Welcome!",
+    "section": "Getting started",
+    "text": "Getting started\nBefore coming to class make sure to:\n\nInstall R\nInstall RStudio\n\nGo to the Quarto website and follow the instructions: https://quarto.org/docs/get-started/"
+  },
+  {
+    "objectID": "index.html#course-materials",
+    "href": "index.html#course-materials",
+    "title": "Welcome!",
+    "section": "Course materials",
+    "text": "Course materials\nAll course materials for this module are provided on this website and includes slides, R-scripts and Notebooks, exercises, datasets and further reading materials."
+  },
+  {
+    "objectID": "index.html#instructor",
+    "href": "index.html#instructor",
+    "title": "Welcome!",
+    "section": "Instructor",
+    "text": "Instructor\nLudovic De Cuypere is currently an Associate Professor of English Linguistics at Vrije Universiteit Brussel and serves as a Research Support Officer at the Linguistics Department of Ghent University. He earned his PhD in Germanic Languages and Literature from Ghent University in 2007, with a dissertation on iconicity in language. His research has centred on alternating syntactic constructions, explored from various linguistic perspectives and in multiple languages. Dr. De Cuypere has contributed to theoretical and epistemological aspects of linguistic debates, along with aiding in the methodological design and statistical analysis of numerous studies. His work is published in esteemed journals such as Language Sciences, English Language and Linguistics, Revue Romane, Corpus Linguistics and Linguistic Theory, among others. An advocate for Open Science, he has released several datasets on TROLLing, a curated repository under DataverseNo."
+  },
+  {
+    "objectID": "Coursebook.html",
+    "href": "Coursebook.html",
+    "title": "Coursebook",
+    "section": "",
+    "text": "The coursebook is provided both as a website and as a pdf file:\n\n\nCoursebook site\n\nCoursebook pdf"
+  },
+  {
+    "objectID": "Data.html",
+    "href": "Data.html",
+    "title": "Data",
+    "section": "",
+    "text": "In this course, you explore, summarize, and visualize variables from the following datasets:\nHere is a brief explanation for each dataset, so that you have a basic understanding of what kind of data is provided.\nAll datasets can be found here: ADD LINK"
+  },
+  {
+    "objectID": "Data.html#english-short-vowels",
+    "href": "Data.html#english-short-vowels",
+    "title": "Data",
+    "section": "English short vowels",
+    "text": "English short vowels\n\nThis dataset contains the measurements of 210 checked steady-state vowels. Previous studies have shown that suprasegmental factors have an impact on the duration of vowels, such as prosodic boundary strength and the proximity to the end of an intonation unit boundary. To the previous findings, this study adds another potential factor, namely the difference between primary accented, secondary accented, and non-accented syllables. By diversifying between these factors, we seek to establish the actual influence that each factor might have on the duration steady-state vowels, which will be assessed using multiple linear mixed-effects regression models. R code for the data analysis is provided.\n\nThe dataset includes 17 variables, providing information about Speaker, Items and Vowels.\nHere is an overview of the first six rows:\n\n\n  ID Number\n1  1      1\n2  2      2\n3  3      3\n4  4      4\n5  5      5\n6  6      6\n                                                                                   IU\n1 to ^get them to give me a sub:stantial sum of money to enable me to :f\\\\inish it# -\n2                                                        I have ^n/\\\\ever said that# \n3                                 I I I ^h/\\\\ope _you`ll ac_cept my _word on _this# -\n4            ^and we pro!pose to put the :scheme to the Chi!ca\\\\go Uni_versity Press#\n5                                  I . ^put my bibli!\\\\ography to the _Oxford _Press#\n6                         I ^thought \"y/\\\\ou were _going to _go and _pick them _up# .\n  Speaker Gender  Item Vowel Duration_IU_s Syllables_IU Speech_Rate Frequency\n1 &lt;2_1_B&gt;   male    it   KIT          2.76           22        7.97      7.33\n2 &lt;2_1_B&gt;   male  that   CAT          1.47            6        4.08      7.19\n3 &lt;2_1_B&gt;   male  this   KIT          2.04           11        5.40      6.89\n4 &lt;2_1_B&gt;   male press DRESS          2.77           19        6.85      4.89\n5 &lt;2_1_B&gt;   male press DRESS          2.99           13        4.35      4.89\n6 &lt;4_1_a&gt;   male    up STRUT          1.49           12        8.04      6.53\n    ACC BI Prox Duration_ms Annotator_1_Duration Annotator_2_Duration\n1 UNACC  4    0        64.2                 66.4                 62.0\n2 UNACC  4    0        83.5                 87.0                 79.9\n3 UNACC  4    0        98.3                104.8                 91.8\n4 UNACC  4    0        95.7                 94.2                 97.2\n5 UNACC  4    0        76.9                 82.7                 71.1\n6 UNACC  4    0        78.3                 78.0                 78.5\n\n\nOne of the variables that we will examine is the duration of the vowels: Duration_ms. Let’s look at a summary and a boxplot for this variable:\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  24.40   77.25  107.90  110.92  143.07  258.90 \n\n\n\n\n\n\n\n\n\n\n\nThe dataset provides the vowel duration of six vowels:\n\n\n[1] \"CAT\"   \"DRESS\" \"KIT\"   \"LOT\"   \"PUT\"   \"STRUT\""
+  },
+  {
+    "objectID": "Data.html#english-possessive-alternation",
+    "href": "Data.html#english-possessive-alternation",
+    "title": "Data",
+    "section": "English possessive alternation",
+    "text": "English possessive alternation\n\nThe dataset includes an annotated dataset of N = 5098 tokens of English s-genitive (e.g. “the children’s voices”) and of-genitive (e.g. “the voices of the children”) constructions extracted from 5 components an of the Brown and Frown corpora of published written American English. The Brown corpus was compiled in the early 1960s, and the parallel Frown corpus in the early 1990s. The tokens are annotated for 18 syntactic, semantic, phonological, and contextual features. The dataset also includes the full sentence containing the token as well as metadata pertaining to the location of the token within the corpus. (2022-08-25)\n\nWe import the data and look at the first six rows:\n\n\n         Token Corpus Text Line_Number Genre Type\n1 ba01.0001.02  Brown  A01           1 Press    s\n2 ba01.0002.02  Brown  A01           2 Press   of\n3 ba01.0004.03  Brown  A01           4 Press   of\n4 ba01.0005.02  Brown  A01           5 Press    s\n5 ba01.0007.02  Brown  A01           7 Press   of\n6 ba01.0008.01  Brown  A01           8 Press   of\n                                Whole_Genitive           Possessor\n1            Atlanta's recent primary election           Atlanta's\n2 the praise and thanks of the City of Atlanta the City of Atlanta\n3                        the size of this city           this city\n4     Georgia's registration and election laws           Georgia's\n5        the best interest of both governments    both governments\n6                   the cost of administration      administration\n   Possessor_Head Possessor_NP_Type Final_Sibilant Possessor_Animacy5\n1         Atlanta            proper              N         collective\n2 City of Atlanta            proper              N         collective\n3            city            common              N         collective\n4         Georgia            proper              N         collective\n5      government            common              Y         collective\n6  administration            common              N          inanimate\n  Possessor_Animacy3 Possessor_Animacy2 Possessor_Givenness\n1         collective          inanimate                 new\n2         collective          inanimate                 new\n3         collective          inanimate               given\n4         collective          inanimate                 new\n5         collective          inanimate                 new\n6          inanimate          inanimate                 new\n                       Possessum Possessum_Head Possessum_Animacy2\n1        recent primary election       election          inanimate\n2          the praise and thanks         praise          inanimate\n3                       the size           size          inanimate\n4 registration and election laws            law          inanimate\n5              the best interest       interest          inanimate\n6                       the cost           cost          inanimate\n  Semantic_Relation Prototypical_Semantics Preceding_s_genitive\n1               OTH                      N                    N\n2               OTH                      N                    Y\n3               OTH                      N                    N\n4               OTH                      N                    N\n5               OTH                      N                    Y\n6               OTH                      N                    N\n  Possessor_Thematicity Possessor_Length Possessum_Length Type_Token_Ratio Time\n1             -2.455932                1                3               72 1960\n2             -3.301030                4                4               66 1960\n3             -2.346787                2                2               73 1960\n4             -2.397940                1                4               75 1960\n5             -3.301030                2                3               74 1960\n6             -3.000000                1                2               75 1960\n\n\nHow many observations are there for each type of possesive?\n\n\n\n  of    s \n3103 1995 \n\n\nIf the final consonant of the possessor is a sibilant, then the use of the of-preposition is more likely (or, vice versa, one would not expect to get an s-possessive):\n\n\n              Type of possessive\nFinal sibilant   of    s\n             N 2229 1754\n             Y  874  241"
+  },
+  {
+    "objectID": "Data.html#english-l2-vocabulary",
+    "href": "Data.html#english-l2-vocabulary",
+    "title": "Data",
+    "section": "English L2 vocabulary",
+    "text": "English L2 vocabulary\nThe dataset is based on De Wilde et al. (2019), available at https://osf.io/ndr47/. I have selected and renamed the variables for our purposes here. Table 1 provides an overview of the variables.\n\n\n\nTable 1: Codebook Falsebeginners\n\n\n\n\n\n\n\n\n\n\nID\nVariable\nDescription\n\n\n\n\n1\nStudent\nA unique identifier for each student\n\n\n2\nSchool\nA unique identifier for each school\n\n\n3\nClass\nA unique identifier for each class\n\n\n4\nPPVT\nScore for the Peabody Picture Vocabulary Test (PPVT). Maximum score = 120\n\n\n5\nSpeaking\nScore for the speaking test. Maximum score = 20\n\n\n6\nListening\nScore for the listening test. Maximum score = 25\n\n\n7\nReadingWriting\nScore for the reading and writing tests. Maximum score = 50\n\n\n8\nAttitude\nAttitude of student towards English: Positive vs. Negative\n\n\n9\nL1\nL1: Dutch vs. Multilingual\n\n\n10\nSex\nSex of student: Male vs. Female\n\n\n\n\n\n\nThe file is a tab delimited .txt-file. We open the file with read.delim(). The dataset is organised in long data format.\n\nthe text file to open,\nthe first row of the file contains the variables names,\nmissing values are marked as “NA”,\nstrings are interpreted as factors.\n\nThe first six rows of the dataset:\n\n\n  Student School Class PPVT Speaking Listening ReadingWriting Attitude    L1\n1      10     S1    1A   70        4         7             13 positive dutch\n2      14     S1    1A   79        7        14             18 positive dutch\n3       2     S1    1A   98       19        24             37 positive dutch\n4       3     S1    1A   80       11        17             30 positive dutch\n5       4     S1    1A   76        7         9             18 positive dutch\n6       5     S1    1A   85       16        17             22 positive dutch\n     Sex\n1 female\n2   male\n3   male\n4   male\n5   male\n6   male"
+  },
+  {
+    "objectID": "Data.html#videolang",
+    "href": "Data.html#videolang",
+    "title": "Data",
+    "section": "Videolang",
+    "text": "Videolang\nThis is a small dataset with pre- and posttest scores of students looking at a video in two languages: English (“ENG”) vs. Dutch (“NED”). It’s a tab delimited .txt file.\n\n\n  ID Lang Pretest Posttest\n1  1  ENG       7        7\n2  2  ENG      17       18\n3  3  ENG      11       17\n4  4  ENG      10       10\n5  5  ENG      17       24\n6  6  ENG      13       16\n\n\nHere is the change score (Post-Pre) by Language visualised in a clustered boxplot.\n\n\n\n\n\n\n\n\n\nThe boxplots suggest more improvement for English than for Dutch, but the difference is not significant, neither based on a t-test, nor on a non-parametric Mann-Whitney-Wilcoxon test.\n\n\n\n    Welch Two Sample t-test\n\ndata:  vid$Change by vid$Lang\nt = 0.48684, df = 25.683, p-value = 0.6305\nalternative hypothesis: true difference in means between group ENG and group NED is not equal to 0\n95 percent confidence interval:\n -1.698725  2.752297\nsample estimates:\nmean in group ENG mean in group NED \n         2.714286          2.187500 \n\n\n\n    Wilcoxon rank sum exact test\n\ndata:  vid$Change by vid$Lang\nW = 127.5, p-value = 0.5278\nalternative hypothesis: true location shift is not equal to 0"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "References"
+  }
+]

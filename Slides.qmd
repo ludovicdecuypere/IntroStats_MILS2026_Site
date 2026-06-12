@@ -1,0 +1,20 @@
+---
+title: "Slides"
+subtitle: "MILS 2026: Introduction to Statistics with R"
+date: 2026-06-11
+date-format: long
+date-modified: last-modified
+author:
+  - name: Ludovic De Cuypere
+    orcid: 0000-0002-0050-1097
+    email: Ludovic.De.Cuypere@vub.be
+    affiliations: Vrije Universiteit Brussel & Ghent University
+---
+
+:::{.callout-note}
+In order to see the slides full screen, click on a slide and press `f`. Press `esc` to go back to normal rendering.
+:::
+
+```{=html}
+<iframe width="800" height="600" src="IntroStats_MILS2026_Slides.html" title="IntroR_Slides"></iframe>
+```
