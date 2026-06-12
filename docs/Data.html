@@ -63,7 +63,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-dfe63338fdd3551de35c9d882dc42858.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f97474ac6db231f97a0739cf9b0f828b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -209,44 +209,56 @@ div.csl-indent {
 <li>Pre-Posttest data</li>
 </ol>
 <p>Here is a brief explanation for each dataset, so that you have a basic understanding of what kind of data is provided.</p>
-<p>All datasets can be found [HERE]<a href="https://github.com/ludovicdecuypere/IntroStats_MILS2026_Site/tree/main/Data" class="uri">https://github.com/ludovicdecuypere/IntroStats_MILS2026_Site/tree/main/Data</a></p>
+<p>All datasets can be found <a href="https://github.com/ludovicdecuypere/IntroStats_MILS2026_Site/tree/main/Data">HERE</a></p>
 <section id="english-short-vowels" class="level2">
 <h2 class="anchored" data-anchor-id="english-short-vowels">English short vowels</h2>
 <blockquote class="blockquote">
 <p>This dataset contains the measurements of 210 checked steady-state vowels. Previous studies have shown that suprasegmental factors have an impact on the duration of vowels, such as prosodic boundary strength and the proximity to the end of an intonation unit boundary. To the previous findings, this study adds another potential factor, namely the difference between primary accented, secondary accented, and non-accented syllables. By diversifying between these factors, we seek to establish the actual influence that each factor might have on the duration steady-state vowels, which will be assessed using multiple linear mixed-effects regression models. R code for the data analysis is provided.</p>
 </blockquote>
 <p>The dataset includes 17 variables, providing information about Speaker, Items and Vowels.</p>
-<p>Here is an overview of the first six rows:</p>
+<p>Here is a quick summary pf the data:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>  ID Number
-1  1      1
-2  2      2
-3  3      3
-4  4      4
-5  5      5
-6  6      6
-                                                                                   IU
-1 to ^get them to give me a sub:stantial sum of money to enable me to :f\\inish it# -
-2                                                        I have ^n/\\ever said that# 
-3                                 I I I ^h/\\ope _you`ll ac_cept my _word on _this# -
-4            ^and we pro!pose to put the :scheme to the Chi!ca\\go Uni_versity Press#
-5                                  I . ^put my bibli!\\ography to the _Oxford _Press#
-6                         I ^thought "y/\\ou were _going to _go and _pick them _up# .
-  Speaker Gender  Item Vowel Duration_IU_s Syllables_IU Speech_Rate Frequency
-1 &lt;2_1_B&gt;   male    it   KIT          2.76           22        7.97      7.33
-2 &lt;2_1_B&gt;   male  that   CAT          1.47            6        4.08      7.19
-3 &lt;2_1_B&gt;   male  this   KIT          2.04           11        5.40      6.89
-4 &lt;2_1_B&gt;   male press DRESS          2.77           19        6.85      4.89
-5 &lt;2_1_B&gt;   male press DRESS          2.99           13        4.35      4.89
-6 &lt;4_1_a&gt;   male    up STRUT          1.49           12        8.04      6.53
-    ACC BI Prox Duration_ms Annotator_1_Duration Annotator_2_Duration
-1 UNACC  4    0        64.2                 66.4                 62.0
-2 UNACC  4    0        83.5                 87.0                 79.9
-3 UNACC  4    0        98.3                104.8                 91.8
-4 UNACC  4    0        95.7                 94.2                 97.2
-5 UNACC  4    0        76.9                 82.7                 71.1
-6 UNACC  4    0        78.3                 78.0                 78.5</code></pre>
+<pre><code>       ID             Number    
+ Min.   :  1.00   Min.   : 1.0  
+ 1st Qu.: 53.25   1st Qu.:18.0  
+ Median :105.50   Median :35.5  
+ Mean   :105.50   Mean   :35.5  
+ 3rd Qu.:157.75   3rd Qu.:53.0  
+ Max.   :210.00   Max.   :70.0  
+                                
+                                              IU          Speaker  
+ I ^find I :hadn`t l\\/ooked at it#             :  3   &lt;1_7_A&gt;:44  
+ you ^just !st\\ick that on the b/ack#          :  3   &lt;1_4_B&gt;:17  
+  is ^{r\\eally 'got} !b\\ared a 'lot#          :  2   &lt;1_5_B&gt;:16  
+ ^and [@] I t/ook 'out b\\its#                  :  2   &lt;1_8_A&gt;:14  
+ ^can you 'pick your 'own :tr\\ousers 'up# .    :  2   &lt;1_1_B&gt;:13  
+ ^is there !such a th/ing as a "G\\uinness 'kit#:  2   &lt;1_3_A&gt;:13  
+ (Other)                                        :196   (Other):93  
+    Gender         Item       Vowel    Duration_IU_s    Syllables_IU   
+ female: 82   that   : 19   CAT  :40   Min.   :0.400   Min.   : 2.000  
+ male  :128   up     : 12   DRESS:32   1st Qu.:0.965   1st Qu.: 5.000  
+              this   : 10   KIT  :45   Median :1.220   Median : 7.000  
+              get    :  9   LOT  :31   Mean   :1.288   Mean   : 7.376  
+              it     :  9   PUT  :17   3rd Qu.:1.490   3rd Qu.: 9.000  
+              got    :  8   STRUT:45   Max.   :2.990   Max.   :22.000  
+              (Other):143                                              
+  Speech_Rate       Frequency        ACC           BI             Prox       
+ Min.   : 2.950   Min.   :2.560   PRIM :70   Min.   :1.000   Min.   : 0.000  
+ 1st Qu.: 4.742   1st Qu.:5.330   SEC  :70   1st Qu.:1.000   1st Qu.: 0.000  
+ Median : 5.600   Median :6.155   UNACC:70   Median :4.000   Median : 0.000  
+ Mean   : 5.784   Mean   :5.971              Mean   :2.529   Mean   : 1.848  
+ 3rd Qu.: 6.770   3rd Qu.:6.655              3rd Qu.:4.000   3rd Qu.: 3.000  
+ Max.   :10.060   Max.   :7.330              Max.   :4.000   Max.   :12.000  
+                                                                             
+  Duration_ms     Annotator_1_Duration Annotator_2_Duration
+ Min.   : 24.40   Min.   : 23.90       Min.   : 17.70      
+ 1st Qu.: 77.25   1st Qu.: 75.78       1st Qu.: 72.78      
+ Median :107.90   Median :111.70       Median :105.80      
+ Mean   :110.92   Mean   :111.87       Mean   :109.98      
+ 3rd Qu.:143.07   3rd Qu.:142.65       3rd Qu.:141.12      
+ Max.   :258.90   Max.   :250.90       Max.   :266.80      
+                                                           </code></pre>
 </div>
 </div>
 <p>One of the variables that we will examine is the duration of the vowels: Duration_ms. Let’s look at a summary and a boxplot for this variable:</p>
@@ -331,7 +343,7 @@ div.csl-indent {
 6             -3.000000                1                2               75 1960</code></pre>
 </div>
 </div>
-<p>How many observations are there for each type of possesive?</p>
+<p>How many observations are there for each type of possessive?</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -428,12 +440,6 @@ Table&nbsp;1: Codebook Falsebeginners
 </figure>
 </div>
 <p>The file is a tab delimited .txt-file. We open the file with <code>read.delim()</code>. The dataset is organised in long data format.</p>
-<ol type="1">
-<li>the text file to open,</li>
-<li>the first row of the file contains the variables names,</li>
-<li>missing values are marked as “NA”,</li>
-<li>strings are interpreted as factors.</li>
-</ol>
 <p>The first six rows of the dataset:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">

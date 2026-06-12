@@ -25,7 +25,7 @@ In this course, you explore, summarize, and visualize variables from the followi
 
 Here is a brief explanation for each dataset, so that you have a basic understanding of what kind of data is provided. 
 
-All datasets can be found [HERE]<https://github.com/ludovicdecuypere/IntroStats_MILS2026_Site/tree/main/Data>
+All datasets can be found [HERE](https://github.com/ludovicdecuypere/IntroStats_MILS2026_Site/tree/main/Data)
 
 ## English short vowels
 
@@ -34,13 +34,14 @@ All datasets can be found [HERE]<https://github.com/ludovicdecuypere/IntroStats_
 The dataset includes 17 variables, providing information about Speaker, Items and Vowels. 
 
 ```{r}
-accent <- read.csv("Accentuation_Dataset.csv", stringsAsFactors=TRUE)
+accent <- read.csv("Accentuation_Dataset.csv", 
+                   stringsAsFactors=TRUE)
 ```
 
-Here is an overview of the first six rows:
+Here is a quick summary pf the data:
 
 ```{r}
-head(accent)
+summary(accent)
 ```
 
 One of the variables that we will examine is the duration of the vowels: Duration_ms. Let's look at a summary and a boxplot for this variable:
@@ -74,7 +75,7 @@ gen <- read.delim("written_genitive_tokens_Brown_Frown.txt", stringsAsFactors=TR
 head(gen)
 ```
 
-How many observations are there for each type of possesive? 
+How many observations are there for each type of possessive? 
 
 ```{r}
 table(gen$Type)
@@ -109,23 +110,17 @@ The dataset is based on De Wilde et al. [-@dewilde2019], available at <https://o
 The file is a tab delimited .txt-file. We open the file with `read.delim()`. The dataset is organised in long data format.
 
 ```{r}
-fb <- read.delim("FalseBeginners.txt",                # <1>
-                 header = TRUE,                       # <2>
-                 na.strings = NA,                     # <3>
-                 stringsAsFactors=TRUE)               # <4>
+fb <- read.delim("FalseBeginners.txt",                
+                 header = TRUE,                       
+                 na.strings = NA,                     
+                 stringsAsFactors=TRUE)               
 ```
-
-1.  the text file to open,
-2.  the first row of the file contains the variables names,
-3.  missing values are marked as "NA",
-4.  strings are interpreted as factors.
 
 The first six rows of the dataset: 
 
 ```{r}
 head(fb)
 ```
-
 
 ## Videolang
 
